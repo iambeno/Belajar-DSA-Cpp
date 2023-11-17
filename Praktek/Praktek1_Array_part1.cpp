@@ -1,7 +1,9 @@
 #include <iostream>
 using namespace std;
 
-void arr1(){
+// Berikut ini adalah berbagai jenis dan cara yang saya praktekkan untuk mengimplementasikan konsep array dalam berbagai case
+
+void array1(){
 
   // Deklarasi array
   string mahasiswa[5]; 
@@ -12,7 +14,7 @@ void arr1(){
   mahasiswa[2] = "Humam";
 
   // Deklarasi + inisialisasi array:
-  string prodi[5] = {"Ilmu Komputer", "Manajemen", "Ekonomi"};
+  string prodi[3] = {"Ilmu Komputer", "Manajemen", "Ekonomi"};
 
   // Mengakses elemen array:
   for (int i = 0; i < 5; i++){
@@ -24,7 +26,7 @@ void arr1(){
   cout << "Prodi \t: " << prodi[0] << endl;
 }
 
-void arr2(){
+void array2(){
 
   // Membuat array 2D
   // Array 2D itu konsepnya sama dengan matriks yang dimana memiliki baris dan kolom
@@ -58,7 +60,7 @@ void arr2(){
   }
 }
 
-void arr3(){
+void array3(){
 
   int id[] =  {1, 2, 3, 4};
   cout << id[3] << endl;
@@ -82,12 +84,12 @@ void arr3(){
   }
 }
 
-void arr4(){
+void array4(){
   // string anggota[];
   string anggota[] = {"Beno"};
 }
 
-void  arr5(){
+void  array5(){
   float ipk[4] = {3.02, 3.7, 2.8};
   ipk[3] = {3.5};
 
@@ -98,19 +100,30 @@ void  arr5(){
   }
 }
 
+void array6(){
+  string nama[5] = {"Abri", "Ridho", "Haekal"};
+  string hobi[5] = {"Gym", "Suka Desain", "Futsal"};
+
+  cout << "Nama \t: " << nama[1] << endl;
+  cout << "Hobi \t: " << hobi[1] << endl;
+}
+
 
 int main(){
   system("cls");
-  arr1();
+  array1();
   cout << endl;
 
-  arr2();
+  array2();
   cout << endl;
 
-  arr3();
+  array3();
   cout << endl;
 
-  arr5();
+  array5();
+  cout << endl;
+
+  array6();
   cout << endl;
 
   return 0;
