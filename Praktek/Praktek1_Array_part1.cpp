@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// Array : adalah tipe data yang dapat menyimpan sejumlah elemen yang bertipe data sama
+
 // Berikut ini adalah berbagai jenis dan cara yang saya praktekkan untuk mengimplementasikan konsep array dalam berbagai case
 
 void array1(){
