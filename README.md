@@ -1,4 +1,4 @@
-﻿# Belajar-DSA-Cpp
+﻿# Belajar Data Structure and Algorithms C++
 
  Materi yang akan dipelajari disini adalah:
  1. Array & Struct
