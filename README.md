@@ -1,6 +1,6 @@
 ﻿# Belajar Data Structure and Algorithms C++
 
- Materi yang akan dipelajari disini adalah struktur data dalam bahasa C++:
+ Materi yang akan dipelajari disini adalah struktur data dalam bahasa C++, yang terdiri dari :
  1. Array & Struct
  2. Pointer
  3. Alokasi Memori
