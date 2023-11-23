@@ -1,5 +1,9 @@
 ﻿# Belajar Data Structure and Algorithms C++
 
+Struktur data adalah penyimpanan yang digunakan untuk menyimpan dan mengatur data. Ini adalah cara untuk mengatur data pada komputer sehingga dapat diakses dan diperbarui secara efisien.
+
+![image](https://github.com/iambeno/Belajar-DSA-Cpp/assets/132084722/6ff7d67a-760f-44ad-8a96-7be318711440)
+
  Materi yang akan dipelajari disini adalah struktur data dalam bahasa C++, yang terdiri dari :
  1. Array & Struct
  2. Pointer
