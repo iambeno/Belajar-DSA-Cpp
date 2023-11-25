@@ -33,16 +33,27 @@ void kasus1(){
 }
 
 void kasus2(){
-  // STUDI KASUS 2: Program untuk membalikan elemen array
+  // STUDI KASUS 2: Program untuk membalikkan kata
+  string kata;
+  cout << "Membalik kata" << endl;
+  cout << "Masukkan sebuah kata : ";
+  cin >> kata;
 
-  // on progress
+  int panjang = kata.length();
+  char temp[panjang + 1]; // Menambahkan 1 untuk karakter null terminator '\0'
 
+  for (int i = 0; i < panjang; i++){
+    temp[i] = kata[panjang - 1 - i];
+  }
+
+  temp[panjang] = '\0'; // Menambahkan karakter null terminator di akhir array
+  cout << "Kata setelah dibalik : " << temp << endl;
 }
 
 int main(){
   system("cls");
 
-  kasus1();
+  // kasus1();
   cout << endl;
 
   kasus2();
