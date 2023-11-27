@@ -5,7 +5,7 @@ using namespace std;
 
 // Berikut ini adalah berbagai jenis dan cara yang saya praktekkan untuk mengimplementasikan konsep struct (record) dalam berbagai case
 
-void data_mahasiswa(){
+void data_ketua(){
 
   // Deklarasi struct
   struct identitas{
@@ -13,18 +13,46 @@ void data_mahasiswa(){
     string nim;
   };
 
-  identitas mahasiswa;
-  cout << "Data Mahasiswa " << endl;
+  identitas ketua;
+  cout << "Data Ketua PMK " << endl;
   cout << "Nama \t: ";
-  getline(cin, mahasiswa.nama);
+  getline(cin, ketua.nama);
   cout << "NIM \t: ";
-  cin >> mahasiswa.nim;
+  cin >> ketua.nim;
+}
+
+void array_of_struct(){
+
+  struct identitas{
+    string nama;
+    int umur;
+  };
+
+  int jumlah_anggota;
+  identitas anggota[jumlah_anggota];
+
+  cout << "INPUT DATA ANGGOTA PMK" << endl;
+  cout << "Masukkan Jumlah Anggota : ";
+  cin >> jumlah_anggota;
+
+  for (int i = 0; i < jumlah_anggota; i++){
+    cout << "Anggota ke-" << i + 1 << " : ";
+    cin >> anggota[i].nama;
+    getline(cin, anggota[i].nama);
+    cout << "Umur : ";
+    cin >> anggota[i].umur;
+  }
+
 }
 
 int main(){
   system("cls");
 
-  data_mahasiswa();
+  data_ketua();
+  cout << endl;
+
+  array_of_struct();
+  cout << endl;
 
   return 0;
 }
