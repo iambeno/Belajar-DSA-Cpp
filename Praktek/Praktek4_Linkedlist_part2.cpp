@@ -5,10 +5,10 @@
   - Setiap node terdiri dari "data" dan "pointer" ke node selanjutnya
   - Bentuk node :
 
-  +--------------+
-  | Data | *next |
-  +--------------+
-  
+  +--------------+     +--------------+
+  | Data | *next |---->| Data | NULL  |
+  +--------------+     +--------------+
+        Head                Tail
 */
 
 #include <iostream>
