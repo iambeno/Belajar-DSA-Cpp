@@ -145,7 +145,7 @@ int main(){
   cout << "----------------------------------------" << endl;
   addLast("Haekal", "123456789", "Management", 2023);
   printSingleLinkedlist();
-  
+
   cout << "\n\nModify node awal single linked list" << endl;
   cout << "----------------------------------------" << endl;
   changeFirst("Jhonias Dosriel", "125222012", "Economy", 2021);
