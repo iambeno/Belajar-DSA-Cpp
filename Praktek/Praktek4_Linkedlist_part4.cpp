@@ -5,7 +5,9 @@
   - Add first
   - Add last
   - Remove first
-  - Remove Last
+  - Remove last
+  - Modify first
+  - Modify last
 */
 
 #include <iostream>
@@ -74,6 +76,22 @@ void removeLast(){
   delete del;
 }
 
+// Modify first 
+void changeFirst(string nama, string nim, string prodi, int tahunMasuk){
+  head->nama = nama;
+  head->nim = nim;
+  head->prodi = prodi;
+  head->tahunMasuk = tahunMasuk;
+}
+
+// Modify last
+void changeLast(string nama, string nim, string prodi, int tahunMasuk){
+  tail->nama = nama;
+  tail->nim = nim;
+  tail->prodi = prodi;
+  tail->tahunMasuk = tahunMasuk;
+}
+
 // Print single linked list
 void printSingleLinkedlist(){
   cur = head;
@@ -117,6 +135,27 @@ int main(){
   removeLast();
   printSingleLinkedlist();
   cout << "Anda telah menghapus node akhir" << endl;
+
+  cout << "\n\nAdd first ke single linked list" << endl;
+  cout << "----------------------------------------" << endl;
+  addFirst("Jhon Doe", "125222012", "Economy", 2020);
+  printSingleLinkedlist();
+
+  cout << "\n\nAdd last ke single linked list" << endl;
+  cout << "----------------------------------------" << endl;
+  addLast("Haekal", "123456789", "Management", 2023);
+  printSingleLinkedlist();
+  
+  cout << "\n\nModify node awal single linked list" << endl;
+  cout << "----------------------------------------" << endl;
+  changeFirst("Jhonias Dosriel", "125222012", "Economy", 2021);
+  printSingleLinkedlist();
+
+  cout << "\n\nModify node akhir single linked list" << endl;
+  cout << "----------------------------------------" << endl;
+  changeLast("Haekal Putra", "123456789", "Management", 2022);
+  printSingleLinkedlist();
+
 
   return 0;
 }
