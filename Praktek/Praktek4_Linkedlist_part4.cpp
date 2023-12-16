@@ -56,6 +56,10 @@ void addLast(string nama, string nim, string prodi, int tahunMasuk){
   tail = newNode;
 }
 
+void addAfter(string nama, string nim, string prodi, int tahunMasuk){
+   
+}
+
 // Remove first
 void removeFirst(){
   del = head;
