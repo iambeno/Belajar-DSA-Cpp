@@ -1,3 +1,30 @@
+/*
+Root Node
+├── Kategori: Roti dan Kue
+│   ├── Sub Kategori: Viennoiseries
+│   │   └── Item Menu: Croissant, Pain au Chocolate, Brioche
+│   ├── Sub Kategori: Pastry
+│   │   └── Item Menu: Éclair, Mille-feuille, Tarte Tatin, Tarlet
+│   └── Sub Kategori: Bread
+│       └── Item Menu: Baguette, Sourdough, Brioche Long
+│       └── Item Menu: Bagel, Burger, Hotdog
+├── Kategori: Minuman
+│   ├── Sub Kategori: Juice
+│   │   └── Item Menu: Apple Juice, Orange Juice, Strawberry Juice
+│   ├── Sub Kategori: Teh
+│   │   └── Item Menu: Earl Grey, Chamomile, English Breakfast, Darjeeling,
+│   │       └── Item Menu: Oolong, Matcha, Jasmine
+│   └── Sub Kategori: Kopi
+│       └── Item Menu: Long black, Cappucino, Latte, Espresso, Machiato, Piccolo
+└── Kategori: Makanan Utama
+    ├── Sub Kategori: Salad
+    │   └── Item Menu: Caesar Salad, Caprese Salad, Waldorf Salad, Nicoise Salad
+    ├── Sub Kategori: Sup
+    │   └── Item Menu: Pumpkin soup, mushroon soup, Corn Soup
+    └── Sub Kategori: Sandwich
+        └── Item Menu: Club Sandwich, Tuna Sandwich,
+            └── Item Menu: Gnocchi, Aglio Olio, Lasagna, Fettucine, Carbonara
+*/
 #include <iostream>
 #include <string>
 
