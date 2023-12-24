@@ -1,3 +1,30 @@
+/*
+Root Node
+├── Kategori: Roti dan Kue
+│   ├── Sub Kategori: Viennoiseries
+│   │   └── Item Menu: Croissant, Pain au Chocolate, Brioche
+│   ├── Sub Kategori: Pastry
+│   │   └── Item Menu: Éclair, Mille-feuille, Tarte Tatin, Tarlet
+│   └── Sub Kategori: Bread
+│       └── Item Menu: Baguette, Sourdough, Brioche Long
+│       └── Item Menu: Bagel, Burger, Hotdog
+├── Kategori: Minuman
+│   ├── Sub Kategori: Juice
+│   │   └── Item Menu: Apple Juice, Orange Juice, Strawberry Juice
+│   ├── Sub Kategori: Teh
+│   │   └── Item Menu: Earl Grey, Chamomile, English Breakfast, Darjeeling,
+│   │       └── Item Menu: Oolong, Matcha, Jasmine
+│   └── Sub Kategori: Kopi
+│       └── Item Menu: Long black, Cappucino, Latte, Espresso, Machiato, Piccolo
+└── Kategori: Makanan Utama
+    ├── Sub Kategori: Salad
+    │   └── Item Menu: Caesar Salad, Caprese Salad, Waldorf Salad, Nicoise Salad
+    ├── Sub Kategori: Sup
+    │   └── Item Menu: Pumpkin soup, mushroon soup, Corn Soup
+    └── Sub Kategori: Sandwich
+        └── Item Menu: Club Sandwich, Tuna Sandwich,
+            └── Item Menu: Gnocchi, Aglio Olio, Lasagna, Fettucine, Carbonara
+*/
 #include <iostream>
 #include <string>
 
@@ -105,73 +132,39 @@ void hapusMenu(Node** root, string namaMenu) {
   }
 
   Node* current = *root;
-  Node* parent = nullptr;
+  while (current != nullptr) {
+    if (current->data.nama == namaMenu) {
+      // Menu ditemukan
+      if (current->left == nullptr && current->right == nullptr) {
+        // Menu tidak memiliki child
+        delete current;
+        *root = nullptr;
+      } else if (current->left == nullptr) {
+        // Menu hanya memiliki child kanan
+        *root = current->right;
+        delete current;
+      } else if (current->right == nullptr) {
+        // Menu hanya memiliki child kiri
+        *root = current->left;
+        delete current;
+      } else {
+        // Menu memiliki dua child
+        Node* successor = current->right;
+        while (successor->left != nullptr) {
+          successor = successor->left;
+        }
 
-  while (current != nullptr && current->data.nama != namaMenu) {
-    parent = current;
-    if (namaMenu < current->data.nama) {
-      current = current->left;
-    } else {
-      current = current->right;
-    }
-  }
+        // Ganti data current dengan data successor
+        current->data = successor->data;
 
-  if (current == nullptr) {
-    cout << "Menu dengan nama " << namaMenu << " tidak ditemukan." << endl;
-    return;
-  }
-
-  // Menu ditemukan
-  if (current->left == nullptr && current->right == nullptr) {
-    // Menu tidak memiliki child
-    if (parent == nullptr) {
-      *root = nullptr;
-    } else if (parent->left == current) {
-      parent->left = nullptr;
-    } else {
-      parent->right = nullptr;
+        // Hapus successor
+        Node* temp = successor->right;
+        delete successor;
+        current->right = temp;
+      }
+      return;
     }
-    delete current;
-  } else if (current->left == nullptr) {
-    // Menu hanya memiliki child kanan
-    if (parent == nullptr) {
-      *root = current->right;
-    } else if (parent->left == current) {
-      parent->left = current->right;
-    } else {
-      parent->right = current->right;
-    }
-    delete current;
-  } else if (current->right == nullptr) {
-    // Menu hanya memiliki child kiri
-    if (parent == nullptr) {
-      *root = current->left;
-    } else if (parent->left == current) {
-      parent->left = current->left;
-    } else {
-      parent->right = current->left;
-    }
-    delete current;
-  } else {
-    // Menu memiliki dua child
-    Node* successorParent = current;
-    Node* successor = current->right;
-
-    while (successor->left != nullptr) {
-      successorParent = successor;
-      successor = successor->left;
-    }
-
-    // Ganti data current dengan data successor
-    current->data = successor->data;
-
-    // Hapus successor
-    if (successorParent->left == successor) {
-      successorParent->left = successor->right;
-    } else {
-      successorParent->right = successor->right;
-    }
-    delete successor;
+    current = current->right;
   }
 }
 
@@ -189,7 +182,6 @@ void tampilkanBahanBaku(NodeBahanBaku* head) {
 void tambahBahanBaku(NodeBahanBaku** head, BahanBaku bahanBaku) {
   NodeBahanBaku* newNode = new NodeBahanBaku();
   newNode->data = bahanBaku;
-  newNode->next = nullptr;
 
   if (*head == nullptr) {
     *head = newNode;
@@ -216,6 +208,7 @@ void kurangiStokBahanBaku(NodeBahanBaku** head, string namaBahanBaku, int jumlah
       current->data.stok -= jumlah;
       if (current->data.stok < current->data.minimumStok) {
         // Kirim notifikasi
+        cout << "Notifikasi: Bahan baku " << current->data.nama << " kurang dari batas minimum stok." << endl;
       }
       return;
     }
@@ -225,6 +218,7 @@ void kurangiStokBahanBaku(NodeBahanBaku** head, string namaBahanBaku, int jumlah
 
 // Fungsi utama
 int main() {
+  system("cls");
   // Inisialisasi data menu
   Menu menu1 = {"Croissant", "Roti dan Kue", "Viennoiseries", "Breakfast", 15000};
   Menu menu2 = {"Pain au Chocolate", "Roti dan Kue", "Viennoiseries", "Breakfast", 20000};
@@ -282,7 +276,7 @@ int main() {
         // Tampilkan menu
         tampilkanMenu(root);
         break;
-      case 2:
+      case 2: {
         // Tambah menu
         // Masukkan data menu
         Menu menu;
@@ -300,7 +294,8 @@ int main() {
         // Tambah menu ke tree
         tambahMenu(&root, menu);
         break;
-      case 3:
+      }
+      case 3: {
         // Hapus menu
         // Masukkan nama menu yang akan dihapus
         string namaMenu;
@@ -310,11 +305,12 @@ int main() {
         // Hapus menu dari tree
         hapusMenu(&root, namaMenu);
         break;
+      }
       case 4:
         // Tampilkan bahan baku
         tampilkanBahanBaku(head);
         break;
-      case 5:
+      case 5: {
         // Tambah bahan baku
         // Masukkan data bahan baku
         BahanBaku bahanBaku;
@@ -328,7 +324,8 @@ int main() {
         // Tambah bahan baku ke linked list
         tambahBahanBaku(&head, bahanBaku);
         break;
-      case 6:
+      }
+      case 6: {
         // Kurangi stok bahan baku
         // Masukkan nama bahan baku dan jumlah stok yang akan dikurangi
         string namaBahanBaku;
@@ -341,6 +338,7 @@ int main() {
         // Kurangi stok bahan baku dari linked list
         kurangiStokBahanBaku(&head, namaBahanBaku, jumlah);
         break;
+      }
     }
   } while (pilihan != 7);
 
