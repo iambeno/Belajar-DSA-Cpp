@@ -69,6 +69,9 @@ void tampilkanMenu(Node* root) {
   tampilkanMenu(root->left);
   tampilkanMenu(root->right);
 }
+// Fungsi untuk login
+// Simpan info login berupa username dan pw ke file datalogin.txt
+
 
 // Fungsi untuk menambahkan menu baru
 void tambahMenu(Node** root, Menu menu) {
