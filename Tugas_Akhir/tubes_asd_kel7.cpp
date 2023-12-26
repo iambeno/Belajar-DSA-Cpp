@@ -27,7 +27,6 @@ Root Node
 */
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 // Struktur data untuk menu
@@ -58,6 +57,9 @@ struct NodeBahanBaku {
   BahanBaku data;
   NodeBahanBaku* next;
 };
+
+// Fungsi untuk login
+// Buat fitur login dan data login berupa username dan pw disimpan dalam databaselogin.txt
 
 // Fungsi untuk menampilkan menu
 void tampilkanMenu(Node* root) {
