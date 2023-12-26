@@ -27,7 +27,6 @@ Root Node
 */
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 // Struktur data untuk menu
