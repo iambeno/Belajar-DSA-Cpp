@@ -1,0 +1,8 @@
+
+===============Akun Terdaftar pada Database===============
+
++-----------------------------------------------------+
+| Nama            | Username        | Password        |  
++-----------------------------------------------------+
+| Beno Gabriel		| User1 					| Pwd1 					|
+| Aba Permaha		| User2 					| Pwd2 					|
