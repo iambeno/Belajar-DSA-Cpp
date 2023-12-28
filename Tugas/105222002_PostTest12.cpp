@@ -1,3 +1,5 @@
+// Nama : Benony Gabriel
+// NIM  : 105222002
 #include <iostream>
 #include <string>
 using namespace std;
