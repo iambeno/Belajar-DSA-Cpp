@@ -19,4 +19,6 @@ Struktur data adalah penyimpanan yang digunakan untuk menyimpan dan mengatur dat
  12. Heap
  13. Hash Table
 
+Lihat visualisasi data structur <a href="https://cmps-people.ok.ubc.ca/ylucet/DS/Algorithms.html">disini</a>
+
 Sumber belajar ini saya dapati dari kelas mata kuliah Algoritma dan Structur Data C++ yang dibawakan oleh ibu Meredita Susanty
