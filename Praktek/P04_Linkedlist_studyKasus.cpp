@@ -125,6 +125,7 @@ void menuTambahData(){
     cout << "\tTambah data" << endl;
     cout << "\t1. Tambah data diawal" << endl;
     cout << "\t2. Tambah data diakhir" << endl;
+    cout << "\t3. Tambah sesuai posisi" << endl;
     cout << "\t0. Kembali ke menu utama" << endl;
     cout << "\tMasukkan pilihan : ";
     cin >> pilihan;
