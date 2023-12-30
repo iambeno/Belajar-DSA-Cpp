@@ -125,8 +125,8 @@ void menuTambahData(){
     cout << "\tTambah data" << endl;
     cout << "\t1. Tambah data diawal" << endl;
     cout << "\t2. Tambah data diakhir" << endl;
-    cout << "\t0. Kembali ke menu utama" << endl;
-    cout << "\tMasukkan pilihan : ";
+    cout << "\t9. Kembali" << endl;
+    cout << "\tMasukkan pilihan [1/2/9] : ";
     cin >> pilihan;
     cout << endl;
       switch (pilihan){
@@ -138,7 +138,7 @@ void menuTambahData(){
           isiDataAkhir();
           cout << endl;
           break;
-        case 0:
+        case 9:
           cout << "\tMenu utama" << endl;
           cout << endl;
           break;
@@ -147,16 +147,16 @@ void menuTambahData(){
           cout << endl;
           break;
       }
-    }while (pilihan != 0);
+    }while (pilihan != 9);
 }
 
 // Menu hapus data
 void menuHapusData(){
   do{
     cout << "\tHapus data" << endl;
-    cout << "\t1. Hapus data diawal" << endl;
-    cout << "\t2. Hapus data diakhir" << endl;
-    cout << "\t0. Kembali ke menu utama" << endl;
+    cout << "\t1. Hapus data awal" << endl;
+    cout << "\t2. Hapus data akhir" << endl;
+    cout << "\t9. Kembali" << endl;
     cout << "\tMasukkan pilihan : ";
     cin >> pilihan;
     cout << endl;
@@ -169,7 +169,7 @@ void menuHapusData(){
           removeLast();
           cout << endl;
           break;
-        case 0:
+        case 9:
           cout << "\tMenu utama" << endl;
           cout << endl;
           break;
@@ -178,7 +178,7 @@ void menuHapusData(){
           cout << endl;
           break;
       }
-    }while (pilihan != 0);
+    }while (pilihan != 9);
 }
 
 // Menu utama
