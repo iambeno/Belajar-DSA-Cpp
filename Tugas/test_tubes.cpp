@@ -37,7 +37,30 @@ menuNode* dataMenu(){
   return menuTree;
 }
 
+// menampilkan menu
+void lihatMenu(menuNode* node){
+  cout << "Daftar Menu" << endl;
+  if(node != nullptr){
+    cout << node->kategori << " - " << node->subKategori << ": \n";
+    for(const auto& item : node->items){
+      cout << " - " << item.namaMenu << " (Rp" << item.harga << ") - Stok : " << item.stok << endl;
+    }
+    for(const auto& child : node->children){
+      lihatMenu(child);
+    }
+  }
+
+}
+
 int main(){
+  // inisialisasi menu menggunkan fungsi dataMenu()
+  menuNode* menuTree = dataMenu();
+
+  // tampilkan menu
+  lihatMenu(menuTree);
+
+  // bersihkan memori
+  delete menuTree;
 
   return 0;
 }
