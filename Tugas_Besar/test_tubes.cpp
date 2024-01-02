@@ -1,35 +1,15 @@
 #include <iostream>
-<<<<<<< HEAD:Tugas_Akhir/test_tubes.cpp
-using namespace std;
-
-// Struktur data untuk menu
-struct Menu{
-  string namaMenu;
-  string kategori;
-  string subKategori;
-  string event;
-=======
 #include <vector>
 using namespace std;
 
 // Struktur data untuk item menu
 struct itemMenu{
   string namaMenu;
->>>>>>> main:Tugas/test_tubes.cpp
   float harga;
   int stok;
 };
 
 // Tree untuk menyimpan data menu
-<<<<<<< HEAD:Tugas_Akhir/test_tubes.cpp
-struct Node{
-  Menu data;
-  Node* left;
-  Node* right;
-};
-
-int main(){
-=======
 struct menuNode{
   string kategori;
   string subKategori;
@@ -129,7 +109,6 @@ int main(){
 
   // bersihkan memori
   delete menuTree;
->>>>>>> main:Tugas/test_tubes.cpp
 
   return 0;
 }
