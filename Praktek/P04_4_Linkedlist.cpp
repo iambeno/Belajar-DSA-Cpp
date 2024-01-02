@@ -4,8 +4,10 @@
   Melakukan penambahan dan penghapusan node :
   - Add first
   - Add last
+  - Add after
   - Remove first
   - Remove last
+  - Remove after
   - Modify first
   - Modify last
 */
@@ -54,6 +56,24 @@ void addLast(string nama, string nim, string prodi, int tahunMasuk){
   newNode->next = NULL;
   tail->next = newNode;
   tail = newNode;
+}
+
+void addAfter(string nama, string nim, string prodi, int tahunMasuk, int posisi){
+  newNode = new data_mhs();
+  newNode->nama = nama;
+  newNode->nim = nim;
+  newNode->prodi = prodi;
+  newNode->tahunMasuk = tahunMasuk;
+
+  // Tranversing
+  int nomor = 1;
+  cur = head;
+  while (nomor < posisi - 1){
+    cur = cur->next;
+    nomor++;
+  }
+  newNode->next = cur->next;
+  cur->next = newNode;
 }
 
 // Remove first
@@ -122,6 +142,11 @@ int main(){
   cout << "\n\nAdd last ke single linked list" << endl;
   cout << "----------------------------------------" << endl;
   addLast("Robert Fox", "123456789", "Management", 2019);
+  printSingleLinkedlist();
+  
+  cout << "\n\nAdd after ke single linked list" << endl;
+  cout << "----------------------------------------" << endl;
+  addAfter("Obiata", "0999", "cacing", 1999, 2);
   printSingleLinkedlist();
 
   cout << "\n\nMenghapus node pertama" << endl;
