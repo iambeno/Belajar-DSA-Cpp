@@ -17,10 +17,13 @@ struct menuNode{
   vector<menuNode*> children;
 };
 
+// Buat variabel global
+menuNode* menuTree;
+
 // Inisialisasi menu
 menuNode* dataMenu(){
   // inisialisasi node root
-  menuNode* menuTree = new menuNode{"", "", {},{
+  menuTree = new menuNode{"", "", {},{
   new menuNode{"Roti dan kue", "Viennoiseries", {{"Croissant", 10.000, 20}, {"Pain au Chocolate", 12.000, 25}, {"Brioche", 15.000, 25}}, {}},
   new menuNode{"Roti dan kue", "Pastry", {{"Éclair", 18.0, 10}, {"Mille-feuille", 20.0, 12}, {"Tarte Tatin", 25.0, 8}, {"Tarlet", 15.0, 20}}, {}},
   new menuNode{"Roti dan kue", "Bread", {{"Baguette", 8.0, 30}, {"Sourdough", 10.0, 25}, {"Brioche Long", 15.0, 20}}, {}},
@@ -35,6 +38,46 @@ menuNode* dataMenu(){
   }};
 
   return menuTree;
+}
+
+// Menambahkan menu baru
+void addMenu(menuNode* node, const string& kategori, const string& subKategori, const itemMenu& item){
+  // mencari node yang sesuai  dengan kategori dan subkategori
+  if(node != nullptr){
+    if(node->kategori == kategori && node->subKategori == subKategori){
+      // menambahkan item menu kedalam vektor items pada node yg sesuai
+      node->items.push_back(item);
+      cout << "Menu berhasil ditambahkan!\n";
+      return;
+    }
+    // Mencari di anak-anak node
+    for(auto& child : node->children){
+      addMenu(child, kategori, subKategori, item);
+    }
+  }else{
+    cout << "Kategori atau subkategori tidak ditemukan!\n";
+  }
+}
+
+// isi data menu yg mau ditambahkan
+void addItem(menuNode* menuTree) {
+    string namaItem, kategori, subKategori;
+    float harga;
+    int stok;
+// harus pake getline utk cin ya ganteng
+    cout << "Masukkan nama item menu : ";
+    cin >> namaItem;
+    cout << "Masukkan harga : ";
+    cin >> harga;
+    cout << "Masukkan stok : ";
+    cin >> stok;
+    cout << "Masukkan ke kategori : ";
+    cin >> kategori;
+    cout << "Masukkan ke subkategori : ";
+    cin >> subKategori;
+
+    itemMenu newItemMenu{namaItem, harga, stok};
+    addMenu(menuTree, kategori, subKategori, newItemMenu);
 }
 
 // menampilkan menu
@@ -53,10 +96,15 @@ void lihatMenu(menuNode* node){
 }
 
 int main(){
+  system("cls");
   // inisialisasi menu menggunkan fungsi dataMenu()
   menuNode* menuTree = dataMenu();
 
   // tampilkan menu
+  lihatMenu(menuTree);
+
+  // tambah menu
+  addItem(menuTree);
   lihatMenu(menuTree);
 
   // bersihkan memori

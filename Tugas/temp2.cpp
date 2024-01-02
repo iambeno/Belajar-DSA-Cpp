@@ -39,6 +39,26 @@ MenuNode* initializeMenu() {
     return menuTree;
 }
 
+// Fungsi untuk menambahkan menu
+void addMenu(MenuNode* node, const string& category, const string& subcategory, const MenuItem& item) {
+    // Mencari node yang sesuai dengan kategori dan subkategori
+    if (node != nullptr) {
+        if (node->category == category && node->subcategory == subcategory) {
+            // Menambahkan item-menu ke dalam vektor items pada node yang sesuai
+            node->items.push_back(item);
+            cout << "Menu berhasil ditambahkan!\n";
+            return;
+        }
+        // Mencari di anak-anak node
+        for (auto& child : node->children) {
+            addMenu(child, category, subcategory, item);
+        }
+    } else {
+        cout << "Kategori atau subkategori tidak ditemukan.\n";
+    }
+}
+
+
 // Fungsi untuk menampilkan menu rekursif
 void displayMenu(MenuNode* node) {
     cout << "Daftar Menu:\n";
@@ -53,9 +73,34 @@ void displayMenu(MenuNode* node) {
     }
 }
 
+// Fungsi untuk menambahkan item-menu
+void addItem(MenuNode* menuTree) {
+    string namaItem, kategori, subKategori;
+    float harga;
+    int stok;
+
+    cout << "Masukkan nama item menu : ";
+    cin >> namaItem;
+    cout << "Masukkan harga : ";
+    cin >> harga;
+    cout << "Masukkan stok : ";
+    cin >> stok;
+    cout << "Masukkan ke kategori : ";
+    cin >> kategori;
+    cout << "Masukkan ke subkategori : ";
+    cin >> subKategori;
+
+    MenuItem newItemMenu{namaItem, harga, stok};
+    addMenu(menuTree, kategori, subKategori, newItemMenu);
+}
+
 int main() {
     // Inisialisasi menu menggunakan fungsi initializeMenu
     MenuNode* menuTree = initializeMenu();
+
+    // Contoh penggunaan fungsi addMenu
+    MenuItem newMenuItem{"New Item", 18.0, 10};
+    addMenu(menuTree, "Roti dan kue", "Viennoiseries", newMenuItem);
 
     // Menampilkan menu awal
     displayMenu(menuTree);
