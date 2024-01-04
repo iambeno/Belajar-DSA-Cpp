@@ -9,6 +9,7 @@ struct itemMenu{
   float harga;
   int stok;
 };
+ 
 
 // Tree untuk menyimpan data menu
 struct menuNode{

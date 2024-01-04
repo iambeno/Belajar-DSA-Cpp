@@ -10,6 +10,7 @@ struct itemMenu{
   int stok;
 };
 
+
 // Tree untuk menyimpan data menu
 struct menuNode{
   string kategori;
