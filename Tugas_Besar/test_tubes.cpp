@@ -195,3 +195,6 @@ int main(){
 
   // bersihkan memori
   delete menuTree;
+
+  return 0;
+}
