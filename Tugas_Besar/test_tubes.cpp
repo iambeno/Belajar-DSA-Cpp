@@ -9,7 +9,9 @@ struct itemMenu{
   float harga;
   int stok;
 };
- 
+
+int pilihan;
+
 
 // Tree untuk menyimpan data menu
 struct menuNode{
@@ -118,7 +120,6 @@ void lihatMenu(menuNode* node){
 }
 
 void menuUtama(){
-  int pilihan;
   cout << "===============WELCOME===============" << endl;
   do{
     cout << "1. Lihat daftar menu\n";
@@ -133,12 +134,12 @@ void menuUtama(){
         cout << "Ini lihat daftar menu" << endl;
         break;
       case 2:
-        cout << "Kelola menu\n";
-        cout << "1. Kategori menu\n";
-        cout << "2. Event menu\n";
-        cout << "9. kembali\n";
-        cout << "Masukkan pilihan [1/2/9] : ";
-        cin >> pilihan;
+        // cout << "Kelola menu\n";
+        // cout << "1. Kategori menu\n";
+        // cout << "2. Event menu\n";
+        // cout << "9. kembali\n";
+        // cout << "Masukkan pilihan [1/2/9] : ";
+        // cin >> pilihan;
         switch(pilihan){
           case 1:
             cout << "Kategori Menu" << endl;
@@ -178,6 +179,18 @@ void menuUtama(){
       
     }
 
+  }while(true);
+}
+
+void menuKelolaMenu(){
+  do{
+    cout << "Kelola menu\n";
+    cout << "1. Kategori menu\n";
+    cout << "2. Event menu\n";
+    cout << "9. kembali\n";
+    cout << "Masukkan pilihan [1/2/9] : ";
+    cin >> pilihan;
+    
   }while(true);
 }
 
