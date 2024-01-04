@@ -9,7 +9,7 @@ struct itemMenu{
   float harga;
   int stok;
 };
-
+ 
 
 // Tree untuk menyimpan data menu
 struct menuNode{
@@ -83,6 +83,25 @@ void addItem(menuNode* menuTree) {
     addMenu(menuTree, kategori, subKategori, newItemMenu);
 }
 
+// hapus item menu
+void deleteItem(menuNode* node, const string& kategori, const string& subKategori, const string& namaMenu){
+  for(auto it = node->items.begin(); it != node->items.end(); ++it){
+    if(it->namaMenu == namaMenu){
+      // hapus item
+      node->items.erase(it);
+
+      // hapus harga
+      cout << "Item " << namaMenu << "berhasil dihapus" << endl;
+      return;
+    }
+  }
+
+  // cari di node children
+  for(auto& child : node->children){
+    deleteItem(child, kategori, subKategori, namaMenu);
+  }
+}
+
 // menampilkan menu
 void lihatMenu(menuNode* node){
   cout << "Daftar Menu" << endl;
@@ -96,6 +115,70 @@ void lihatMenu(menuNode* node){
     }
   }
 
+}
+
+void menuUtama(){
+  int pilihan;
+  cout << "===============WELCOME===============" << endl;
+  do{
+    cout << "1. Lihat daftar menu\n";
+    cout << "2. Kelola menu\n";
+    cout << "3. Kelola harga\n";
+    cout << "4. Tambah stok\n";
+    cout << "0. Tutup\n";
+    cout << "Masukkan pilihan [1/2/3/4/0] : ";
+    cin >> pilihan;
+    switch(pilihan){
+      case 1:
+        cout << "Ini lihat daftar menu" << endl;
+        break;
+      case 2:
+        cout << "Kelola menu\n";
+        cout << "1. Kategori menu\n";
+        cout << "2. Event menu\n";
+        cout << "9. kembali\n";
+        cout << "Masukkan pilihan [1/2/9] : ";
+        cin >> pilihan;
+        switch(pilihan){
+          case 1:
+            cout << "Kategori Menu" << endl;
+            cout << "1. Lihat semua kategori\n";
+            cout << "2. Tambah kategori\n";
+            cout << "3. Hapus kategori\n";
+            cout << "4. Reset kategori\n";
+            cout << "5. Edit\n";
+            cout << "9. Kembali\n";
+            cout << "0. Menu utama\n";
+            cout << "Masukkan pilihan [1/2/3/4/5/9] : ";
+            cin >> pilihan;
+            switch(pilihan){
+              case 1:
+                cout << "Ini lihat semua kategori" << endl;
+                break;
+              case 2: 
+                cout << "Ini tambah kategori" << endl;
+                break;
+              case 3:
+                cout << "Hapus kategori" << endl;
+                break;
+              case 4:
+                cout << "Reset kategori" << endl;
+                break;
+              case 9:
+                cout << "Kembali" << endl;
+                break;
+              case 0:
+                cout << "Menu utama" << endl;
+                break;
+              default:
+                cout << "Pilihan tidak valid" << endl;
+            }
+
+        }
+      
+    }
+
+  }while(true);
 }
 
 int main(){
