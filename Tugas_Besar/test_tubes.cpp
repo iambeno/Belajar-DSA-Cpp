@@ -9,7 +9,9 @@ struct itemMenu{
   float harga;
   int stok;
 };
- 
+
+int pilihan;
+
 
 // Tree untuk menyimpan data menu
 struct menuNode{
@@ -117,28 +119,74 @@ void lihatMenu(menuNode* node){
 
 }
 
+void fiturDaftarMenu(){
+  cout << "Fitur daftar menu" << endl;
+  do{
+    cout << "9. Kembali" << endl;
+    cout << "Masukkan pilihan : ";
+    cin >> pilihan;
+    if (pilihan == 9){
+      // menuUtama();
+      break;
+    }
+    else
+      cout << "Pilihan tidak tersedia, coba lagi" << endl;
+  }while(true);
+}
+
+void fiturTambahMenu(){
+  cout << "Tambah Menu" << endl;
+  do{
+    cout << "1. Tambah kategori\n";
+    cout << "2. Tambah sub kategori\n";
+    cout << "3. Tambah item\n";
+    cout << "4. Tambah event\n";
+    cout << "9. Kembali\n";
+    cout << "Masukkan pilihan [1/2/3/4/9] : ";
+    cin >> pilihan;
+    switch(pilihan){
+      case 1: 
+        cout << "Tambah Kategori" << endl;
+        break;
+      case 2:
+        cout << "Tambah sub kategori" << endl;
+        break;
+      case 3:
+        cout << "Tambah item" << endl;
+        break;
+      case 4:
+        cout << "Tambah event" << endl;
+        break;
+      default:
+        cout << "Pilihan tidak tersedia" << endl;
+        break;
+    }
+  } while(true);
+}
+
 void menuUtama(){
-  int pilihan;
   cout << "===============WELCOME===============" << endl;
   do{
     cout << "1. Lihat daftar menu\n";
-    cout << "2. Kelola menu\n";
-    cout << "3. Kelola harga\n";
+    cout << "2. Tambah menu\n";
+    cout << "3. Hapus menu\n";
     cout << "4. Tambah stok\n";
+    cout << "5. Update harga\n";
     cout << "0. Tutup\n";
     cout << "Masukkan pilihan [1/2/3/4/0] : ";
     cin >> pilihan;
     switch(pilihan){
       case 1:
         cout << "Ini lihat daftar menu" << endl;
+        fiturDaftarMenu();
         break;
       case 2:
-        cout << "Kelola menu\n";
-        cout << "1. Kategori menu\n";
-        cout << "2. Event menu\n";
-        cout << "9. kembali\n";
-        cout << "Masukkan pilihan [1/2/9] : ";
-        cin >> pilihan;
+        // cout << "Kelola menu\n";
+        // cout << "1. Kategori menu\n";
+        // cout << "2. Event menu\n";
+        // cout << "9. kembali\n";
+        // cout << "Masukkan pilihan [1/2/9] : ";
+        // cin >> pilihan;
         switch(pilihan){
           case 1:
             cout << "Kategori Menu" << endl;
@@ -181,20 +229,32 @@ void menuUtama(){
   }while(true);
 }
 
+void menuKelolaMenu(){
+  do{
+    cout << "Kelola menu\n";
+    cout << "1. Kategori menu\n";
+    cout << "2. Event menu\n";
+    cout << "9. kembali\n";
+    cout << "Masukkan pilihan [1/2/9] : ";
+    cin >> pilihan;
+    
+  }while(true);
+}
+
 int main(){
   system("cls");
-  // inisialisasi menu menggunkan fungsi dataMenu()
-  menuNode* menuTree = dataMenu();
+  // // inisialisasi menu menggunkan fungsi dataMenu()
+  // menuNode* menuTree = dataMenu();
+  fiturDaftarMenu();
+  // // tampilkan menu
+  // lihatMenu(menuTree);
 
-  // tampilkan menu
-  lihatMenu(menuTree);
+  // // tambah menu
+  // addItem(menuTree);
+  // lihatMenu(menuTree);
 
-  // tambah menu
-  addItem(menuTree);
-  lihatMenu(menuTree);
-
-  // bersihkan memori
-  delete menuTree;
+  // // bersihkan memori
+  // delete menuTree;
 
   return 0;
 }
